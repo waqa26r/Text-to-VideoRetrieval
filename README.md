@@ -1,7 +1,7 @@
 # Cross-Modal Text-to-Video Retrieval System
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
-![License: waqa26r](https://github.com/waqa26r)
+[License: waqa26r](https://github.com/waqa26r)
 
 ## Description
 
