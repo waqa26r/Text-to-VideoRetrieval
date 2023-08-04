@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Clip Generator</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#generateButton').click(function() {
+                var query = $('#queryInput').val();
+                generateVideoClip(query);
+            });
+        });
+
+        function generateVideoClip(query) {
+            $.ajax({
+                url: 'http://localhost:5000/generate_video_clip',
+                type: 'POST',
+                data: { query: query },
+                success: function(response) {
+                    if (response.success) {
+                        alert('Video clip generated and stored in: ' + response.destination_folder);
+                    } else {
+                        alert('Error generating video clip: ' + response.error);
+                    }
+                },
+                error: function() {
+                    alert('An error occurred during the request.');
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Video Clip Generator</h1>
+    <input type="text" id="queryInput" placeholder="Enter query">
+    <button id="generateButton">Generate Video Clip</button>
+</body>
+</html>
